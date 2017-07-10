@@ -1,0 +1,9 @@
+Durch die Nutzung dieser App erklären Sie sich mit der Erfassung und Verarbeitung von Daten gemäß der nachfolgenden Beschreibung einverstanden.
+
+Während der Nutzung dieser App werden Daten wie aufgerufene Seiten, Datum und Uhrzeit, sowie die Zeit, die auf den aufgerufenen Seiten verbracht wurde, erfasst.
+
+Die gesammelten Daten werden zur Visualisierung dieser Daten und zur Erstellung von xAPI-Statements verarbeitet.
+
+Die Erfassung erfolgt anonym, da keine personenbezogenen Daten erfasst werden.
+
+Falls Sie damit einverstanden sind, können Sie fortfahren.

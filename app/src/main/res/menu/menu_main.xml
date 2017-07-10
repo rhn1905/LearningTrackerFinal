@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_forward"
+        android:title="@string/action_forward"
+        />
+    <item
+        android:id="@+id/action_refresh"
+        android:title="@string/action_refresh"
+        />
+    <item
+        android:id="@+id/action_history"
+        android:title="@string/action_history"
+        />
+    <item
+        android:id="@+id/action_visualize"
+        android:title="@string/action_visualize"
+        android:icon="@drawable/ic_chart_pie"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/action_about"
+        android:title="@string/action_about"
+        />
+
+
+</menu>

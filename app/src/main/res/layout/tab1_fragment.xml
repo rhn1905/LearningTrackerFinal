@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+        <!--android:fillViewport="true"-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pieChart"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.6"
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                ></com.github.mikephil.charting.charts.PieChart>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.4"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="Domain"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="Time Spent"/>
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/pieChartListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:layout_marginBottom="?attr/actionBarSize"/>
+            </LinearLayout>
+
+
+
+
+            <!--
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/graphChart"
+                android:layout_width="match_parent"
+                android:layout_height="400dp">
+            </com.github.mikephil.charting.charts.LineChart>
+             -->
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,9 @@
+By using this app, you agree to the collection and processing of data as described below.
+
+Data such as called pages, date and time as well as the time spent on the called pages are recorded during the usage of this app.
+
+The collected data is processed to visualize it and to create xAPI statements.
+
+The recording is anonymous since no personal data are collected.
+
+If you agree, you can proceed.

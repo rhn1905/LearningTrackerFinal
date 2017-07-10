@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Learning Tracker</string>
+    <string name="action_forward">Vorwärts</string>
+    <string name="action_history">Verlauf</string>
+    <string name="action_refresh">Neu laden</string>
+    <string name="action_switch">Lernen</string>
+    <string name="action_visualize">Daten visualisieren</string>
+    <string name="action_close_title">Schließe Anwendung</string>
+    <string name="action_close">Sind Sie sicher, dass Sie die Anwendung verlassen möchten?</string>
+    <string name="action_positive">Ja</string>
+    <string name="action_negative">Nein</string>
+    <string name="title_activity_data_visualizer">Datenvisualisierung</string>
+    <string name="xAPI_language_tag">de-DE</string>
+    <string name="tab_charts">Graph</string>
+    <string name="tab_xapi">xAPI Aussagen</string>
+    <string name="homepage">https://google.de</string>
+    <string name="google_search">https://www.google.de/search?q=</string>
+    <string name="tab_xapi_description">Tippe auf einen Eintrag, um die Lernrelevanz zu ändern.</string>
+    <string name="eula">eula_1_de.txt</string>
+    <string name="searchbar">Suchen oder URL eingeben</string>
+    <string name="xapitextViewDuration">Die Zeit wird nur für \"verließ\" erfasst</string>
+    <string name="action_about">Über</string>
+    <string name="about_appicon_designer">Icon erstellt von Madebyoliver auf www.flaticon.com - Schlüsselwort: Pie Chart</string>
+    <string name="about_programmer">Diese App wurde im Rahmen der Bachelorarbeit \"App zur Sammlung von Lerndaten\" von Erhan Erfiliz programmiert.</string>
+    <string name="about_credits">Credits</string>
+    <string name="about_charticon_designer">Icon erstellt von Austin Andrews auf www.materialdesignicons.com - Schlüsselwort: chart-pie</string>
+    <string name="about_mpandroid">Kreisdiagramm Visualisierung unterstützt von MP Android Chart - erstellt von Philipp Jahoda</string>
+    <string name="learning_note">Seite als lernrelevant markiert</string>
+    <string name="learning_note2">Seite als nicht-lernrelevant markiert</string>
+    <string name="xapi_learning">Lernrelevant</string>
+    <string name="xapi_timespent">Am</string>
+    <string name="xapi_duration">Zeit verbracht</string>
+</resources>
