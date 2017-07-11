@@ -9,6 +9,7 @@ import java.io.RandomAccessFile;
 import java.util.UUID;
 
 /**
+ * The Installation class is used to generate a random UUID when the app is installed.
  * This was taken from the <a href="http://android-developers.blogspot.com/2011/03/identifying-app-installations.html">android developers blog.</a>
  */
 

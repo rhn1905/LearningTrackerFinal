@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/**
+ * The DataBaseHelper Class manages all aspects of the history database.
+ */
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
@@ -30,14 +33,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public String getDatabasePath(){
-        return databasePath;
-    }
-
-    public String getTableName(){
-        return TABLE_NAME;
-    }
-
 
     @Override
     public void onCreate(SQLiteDatabase db){
@@ -56,10 +51,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * This function inserts the passed parameters into the database.
-     * @param urlAddress
-     * @param urlTitle
-     * @param learning
+     * This function adds new Data to the database.
+     * @param urlAddress A URL Address
+     * @param urlTitle A URL Title
+     * @param learning An Integer which is either 0 or 1 depending on the Switch state in MainActivity
      * @return True if the insert query was successful
      */
     public boolean addData(String urlAddress, String urlTitle, String urlHost, int learning){
@@ -124,7 +119,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
      * This function is called whenever the WebView has finished loading a new page and the timer for
      * the last page has been stopped.
      *
-     * @param pageTime
+     * @param pageTime The time that has been spent on a Website
      * @return True if the update query was successful
      */
     public boolean updatePageTime(Long pageTime){
@@ -142,7 +137,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     /**
      * Similar to updatePageTime(Long pageTime). This Function will update the last inserted ID.
-     * @param pageTime
+     * @param pageTime The time that has been spent on the latest Website
      * @return True if the update query was successful
      */
     public boolean updateLastPageTime(Long pageTime){
@@ -158,20 +153,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Cursor test(){
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        String testQuery = "SELECT "+ KEY_TIMESPENT +" FROM "+TABLE_NAME+" WHERE "+ KEY_ROWID +
-                " = (SELECT MAX("+KEY_ROWID+") FROM "+ TABLE_NAME+")";
-
-        Cursor data = db.rawQuery(testQuery,null);
-        return data;
-    }
-
 
     /**
-     * This Function binds all the IDs, UUIDs, URLAddresses,URLTitles,Learning-Status,Timestamps and
-     * the time spent on these Websites to a cursor.
+     * This Function binds the IDs, URLAddresses,URLTitles,Learning-Status,Timestamps and
+     * the time spent on these Websites to a cursor in descending order.
      * @return The cursor
      */
     public Cursor getAllEntries()
@@ -195,6 +180,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * This methods returns the data that is needed for the MPAndroidChart Visualizer
+     * @return Cursor with Data
+     */
     public Cursor getGraphData(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT "+KEY_ROWID+", "+ KEY_URLHOST +", SUM("+KEY_TIMESPENT+")"+" FROM "+ TABLE_NAME
@@ -203,18 +192,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-
-    /*
-     * does nothing right now. Fix Query if you want to do something.
-     *
+    /**
+     * Gets every database entry
+     * @return Cursor with all entries
      */
-    public Cursor getLastRow(){
-        SQLiteDatabase db=this.getWritableDatabase();
-        Cursor data = db.rawQuery("SELECT "+ KEY_TIMESPENT +" FROM "+ TABLE_NAME+" SELECT MAX(_id) FROM "+ TABLE_NAME, null);
-        return data;
-    }
-
-    public Cursor getListContents(){
+    public Cursor getDBContents(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME,null);
 

@@ -5,6 +5,9 @@ import android.util.Log;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * The TimeTracker class keeps track of the time spent on each website.
+ */
 
 public class TimeTracker {
 
@@ -18,11 +21,8 @@ public class TimeTracker {
 
 
     /**
-     * saves the starting time of the learning session
+     * sets the start time when a page has finished loading
      */
-
-
-
     public void setPageStartTime(){
         tStartPage = System.nanoTime();
     }
@@ -45,6 +45,9 @@ public class TimeTracker {
 
     }
 
+    /**
+     * resets total pause value
+     */
     public void  resetTotalPauseTime(){
         tTotalPause = 0;
     }

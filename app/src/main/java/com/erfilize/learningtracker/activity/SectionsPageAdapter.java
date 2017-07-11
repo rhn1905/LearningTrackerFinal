@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by erhan on 24.06.2017.
+ * The SectionsPageAdapter manages the different Tab Fragments.
+ * Code from the <a href=https://www.youtube.com/watch?v=bNpWGI_hGGg&user=UCoNZZLhPuuRteu02rh7bzsw>Android Tab Tutorial by Mitch Tabian on YouTube.</a>
  */
 
 public class SectionsPageAdapter extends FragmentPagerAdapter{

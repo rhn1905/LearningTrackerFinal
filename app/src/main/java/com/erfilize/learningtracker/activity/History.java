@@ -15,7 +15,7 @@ import com.erfilize.learningtracker.R;
 
 
 /**
- *
+ * The History class populates a ListView with data from the database to show the browser history.
  */
 
 public class History extends AppCompatActivity{
@@ -46,7 +46,7 @@ public class History extends AppCompatActivity{
      */
     private void populateListView(){
 
-        Cursor data = myDB.getListContents();
+        Cursor data = myDB.getDBContents();
         if(data.getCount() == 0){
             Toast.makeText(History.this,"DB was empty",Toast.LENGTH_LONG).show();
         }

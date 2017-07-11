@@ -78,7 +78,7 @@ public class Tab2Fragment extends Fragment {
                 testArray = myXAPI.getArray();
 
                 try{
-                    String learning = data.get(position).getJSONObject("learning").getJSONObject("display").getString("en-US");
+                    String learning = data.get(position).getJSONObject("object").getJSONObject("extensions").getJSONObject("learning").getJSONObject("display").getString("en-US");
                     //
                     String object = data.get(position).getJSONObject("object").getJSONObject("definition").getJSONObject("name").getString(getContext().getString(R.string.xAPI_language_tag));
                     //
@@ -88,8 +88,8 @@ public class Tab2Fragment extends Fragment {
 
                         for (int i = 0; i < data.size(); i++){
                             if (data.get(i).getJSONObject("object").getJSONObject("definition").getJSONObject("name").getString(getContext().getString(R.string.xAPI_language_tag)).equals(object)){
-                                data.get(i).getJSONObject("learning").getJSONObject("display").put("en-US","No");
-                                data.get(i).getJSONObject("learning").getJSONObject("display").put("de-DE","Nein");
+                                data.get(i).getJSONObject("object").getJSONObject("extensions").getJSONObject("learning").getJSONObject("display").put("en-US","No");
+                                data.get(i).getJSONObject("object").getJSONObject("extensions").getJSONObject("learning").getJSONObject("display").put("de-DE","Nein");
                             }
                         }
                         //data.get(position).getJSONObject("learning").getJSONObject("display").put("en-US","No");
@@ -98,8 +98,8 @@ public class Tab2Fragment extends Fragment {
                     }else {
                         for (int i = 0; i < data.size(); i++) {
                             if (data.get(i).getJSONObject("object").getJSONObject("definition").getJSONObject("name").getString(getContext().getString(R.string.xAPI_language_tag)).equals(object)) {
-                                data.get(i).getJSONObject("learning").getJSONObject("display").put("en-US","Yes");
-                                data.get(i).getJSONObject("learning").getJSONObject("display").put("de-DE","Ja");
+                                data.get(i).getJSONObject("object").getJSONObject("extensions").getJSONObject("learning").getJSONObject("display").put("en-US","Yes");
+                                data.get(i).getJSONObject("object").getJSONObject("extensions").getJSONObject("learning").getJSONObject("display").put("de-DE","Ja");
                             }
                             //data.get(position).getJSONObject("learning").getJSONObject("display").put("en-US","Yes");
                             //data.get(position).getJSONObject("learning").getJSONObject("display").put("de-DE","Ja");

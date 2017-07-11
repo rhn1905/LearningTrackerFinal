@@ -25,7 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by erhan on 24.06.2017.
+ * The Tab1Fragment class visualizes the time spent on all learning relevant URLs in a Pie Chart.
+ * Visualizer powered by <a href=https://github.com/PhilJay/MPAndroidChart>MPAndroidChart by Philipp Jahoda.</a>
  */
 
 public class Tab1Fragment extends Fragment {

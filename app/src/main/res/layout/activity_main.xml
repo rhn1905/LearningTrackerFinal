@@ -30,6 +30,7 @@
                 android:layout_weight="0.5"
                 android:hint="@string/searchbar"
                 android:imeOptions="actionSend"
+                android:selectAllOnFocus="true"
                 android:inputType="textUri" />
 
             <Switch

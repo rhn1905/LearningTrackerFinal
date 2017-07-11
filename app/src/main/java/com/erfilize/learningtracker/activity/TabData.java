@@ -10,7 +10,8 @@ import android.util.Log;
 import com.erfilize.learningtracker.R;
 
 /**
- * Created by erhan on 24.06.2017.
+ * The TabData class is used to setup the Tab Fragments and utilizes the SectionsPageAdapter class.
+ * Based on the <a href=https://www.youtube.com/watch?v=bNpWGI_hGGg&user=UCoNZZLhPuuRteu02rh7bzsw>Android Tab Tutorial by Mitch Tabian on YouTube</a>
  */
 
 public class TabData extends AppCompatActivity {

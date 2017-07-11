@@ -73,7 +73,7 @@ public class ListAdapter extends ArrayAdapter<JSONObject> {
                 //actor.setText("Actor: " + list.get(position).getJSONObject("actor").getString("name"));
                 verb.setText("Verb: "+list.get(position).getJSONObject("verb").getJSONObject("display").getString(getContext().getString(R.string.xAPI_language_tag)));
                 object.setText("Object: "+list.get(position).getJSONObject("object").getJSONObject("definition").getJSONObject("name").getString(getContext().getString(R.string.xAPI_language_tag)));
-                learning.setText(getContext().getString(R.string.xapi_learning)+": "+list.get(position).getJSONObject("learning").getJSONObject("display").getString(getContext().getString(R.string.xAPI_language_tag)));
+                learning.setText(getContext().getString(R.string.xapi_learning)+": "+list.get(position).getJSONObject("object").getJSONObject("extensions").getJSONObject("learning").getJSONObject("display").getString(getContext().getString(R.string.xAPI_language_tag)));
                 //timestamp.setText("At: "+list.get(position).getString("timestamp"));
                 timestamp.setText(getContext().getString(R.string.xapi_timespent)+": "+convertedTime);
                 duration.setText(getContext().getString(R.string.xapi_duration)+": "+list.get(position).getJSONObject("result").getString("duration"));
@@ -81,7 +81,7 @@ public class ListAdapter extends ArrayAdapter<JSONObject> {
                 //actor.setText("Actor: " + list.get(position).getJSONObject("actor").getString("name"));
                 verb.setText("Verb: " + list.get(position).getJSONObject("verb").getJSONObject("display").getString(getContext().getString(R.string.xAPI_language_tag)));
                 object.setText("Object: " + list.get(position).getJSONObject("object").getJSONObject("definition").getJSONObject("name").getString(getContext().getString(R.string.xAPI_language_tag)));
-                learning.setText(getContext().getString(R.string.xapi_learning)+": "+list.get(position).getJSONObject("learning").getJSONObject("display").getString(getContext().getString(R.string.xAPI_language_tag)));
+                learning.setText(getContext().getString(R.string.xapi_learning)+": "+list.get(position).getJSONObject("object").getJSONObject("extensions").getJSONObject("learning").getJSONObject("display").getString(getContext().getString(R.string.xAPI_language_tag)));
                 //timestamp.setText("At: " + list.get(position).getString("timestamp"));
                 timestamp.setText(getContext().getString(R.string.xapi_timespent)+": "+convertedTime);
                 //duration.setText("Duration: "+list.get(position).getJSONObject("result").getString("duration"));

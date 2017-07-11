@@ -4,6 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+/**
+ * SharedPrefEditor class is used to access SharedPreferences
+ */
+
 public class SharedPrefEditor {
 
     private SharedPreferences preferences;
@@ -15,7 +19,7 @@ public class SharedPrefEditor {
     /**
      * Check if value is null. This is an important issue when working with SharedPreferences,
      * as null keys can cause corruption.
-     * @param value
+     * @param value the value to be checked
      */
     public void checkNull(String value){
         if ( value == null){

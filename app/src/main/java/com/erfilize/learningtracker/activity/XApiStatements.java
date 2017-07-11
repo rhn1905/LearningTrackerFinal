@@ -13,13 +13,16 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
+/**
+ * The XApiStatements class creates valid xAPI-Statements.
+ */
 
 public class XApiStatements extends AppCompatActivity {
 
     private JSONObject actor;
     private JSONObject verb;
     private JSONObject object;
-    private JSONObject learning;
+    private JSONObject extensions;
     private JSONObject result;
 
     private JSONObject xApiStatement;
@@ -47,10 +50,19 @@ public class XApiStatements extends AppCompatActivity {
 
     }
 
+    /**
+     * sets the language tag for the Object
+     * @param tag language tag
+     */
     public void setLanguageTag(String tag){
         languageTag = tag;
     }
 
+    /**
+     * Sets the Actor for the xAPI-Statement
+     * @param name Name of the Actor
+     * @param id ID of the Actor
+     */
     public void setActor(String name, String id){
         actor = new JSONObject();
 
@@ -63,6 +75,10 @@ public class XApiStatements extends AppCompatActivity {
     }
 
 
+    /**
+     * Sets the Verb of the xAPI-Statement
+     * @param newVerb xAPI-Verb
+     */
     public void setVerb(String newVerb){
         verb = new JSONObject();
         String id = "";
@@ -73,10 +89,12 @@ public class XApiStatements extends AppCompatActivity {
             case "completed":
                 id = "http://adlnet.gov/expapi/verbs/completed";
                 deDE="schloss ab";
+                exited = false;
                 break;
             case "experienced":
                 id ="http://adlnet.gov/expapi/verbs/experienced";
                 deDE="erfuhr";
+                exited = false;
                 break;
             case "exited":
                 id ="http://adlnet.gov/expapi/verbs/exited";
@@ -86,29 +104,36 @@ public class XApiStatements extends AppCompatActivity {
             case "interacted":
                 id = "http://adlnet.gov/expapi/verbs/interacted";
                 deDE="interagierte";
+                exited = false;
                 break;
             case "initialized":
                 id = "http://adlnet.gov/expapi/verbs/initialized";
                 deDE="initialisierte";
+                exited = false;
                 break;
             case "launched":
                 id = "http://adlnet.gov/expapi/verbs/launched";
                 deDE="startete";
+                exited = false;
                 break;
             case "resumed":
                 id = "http://adlnet.gov/expapi/verbs/resumed";
                 deDE="setzte fort";
+                exited = false;
                 break;
             case "suspended":
                 id = "http://adlnet.gov/expapi/verbs/suspended";
                 deDE = "suspendierte";
+                exited = false;
                 break;
             case "terminated":
                 id ="http://adlnet.gov/expapi/verbs/terminated";
                 deDE="beendete";
+                exited = false;
                 break;
             default:
                 Log.w("setVerb", "Verb is unknown");
+                exited = false;
                 break;
         }
 
@@ -122,6 +147,12 @@ public class XApiStatements extends AppCompatActivity {
         }
     }
 
+    /**
+     * Sets the Object of the xAPI-Statement
+     * @param id ID of the Object
+     * @param objectName Name of the Object
+     * @param activityType Activitytype of the Object
+     */
     public void setObject(String id, String objectName, String activityType){
         object = new JSONObject();
         JSONObject definition = new JSONObject();
@@ -138,8 +169,13 @@ public class XApiStatements extends AppCompatActivity {
         }
     }
 
+    /**
+     * Sets the (self-defined) Learning property of the xAPI-Statement
+     * @param value Either 0 oder 1 depending on Switch-State
+     */
     public void setLearning(int value){
-        learning = new JSONObject();
+        extensions = new JSONObject();
+        JSONObject learning = new JSONObject();
         JSONObject display = new JSONObject();
 
         try{
@@ -152,12 +188,18 @@ public class XApiStatements extends AppCompatActivity {
             }
 
             learning.put("display",display);
+            extensions.put("learning",learning);
+            object.put("extensions",extensions);
 
         }catch (JSONException e){
             e.printStackTrace();
         }
     }
 
+    /**
+     * sets the duration of the xAPI-Statement
+     * @param duration the time
+     */
     public void setxAPIResult(int duration){
         result = new JSONObject();
         String seconds = Integer.toString(duration);
@@ -169,6 +211,9 @@ public class XApiStatements extends AppCompatActivity {
         }
     }
 
+    /**
+     * Creates the complete xapi statement
+     */
     public void createStatement(){
         xApiStatement = new JSONObject();
         // Local Time
@@ -186,7 +231,7 @@ public class XApiStatements extends AppCompatActivity {
                 xApiStatement.put("verb", verb);
                 xApiStatement.put("object", object);
                 xApiStatement.put("result", result);
-                xApiStatement.put("learning", learning);
+                //xApiStatement.put("extensions", extensions);
                 xApiStatement.put("timestamp", date);
                 xApiStatementsArray.put(xApiStatement);
                 result = new JSONObject();
@@ -194,7 +239,7 @@ public class XApiStatements extends AppCompatActivity {
                 xApiStatement.put("actor", actor);
                 xApiStatement.put("verb", verb);
                 xApiStatement.put("object", object);
-                xApiStatement.put("learning", learning);
+                //xApiStatement.put("extensions", extensions);
                 xApiStatement.put("timestamp", date);
                 xApiStatementsArray.put(xApiStatement);
             }
@@ -204,28 +249,41 @@ public class XApiStatements extends AppCompatActivity {
 
     }
 
+    /**
+     * Returns the latest created xAPI-Statement
+     * @return xAPIStatement
+     */
     public JSONObject getStatement(){
         return xApiStatement;
     }
 
-    public void setTimeSpent(){
-
-    }
-
-
+    /**
+     * returns the xAPI-Array in a String
+     * @return xAPI-Array as String
+     */
     public String getArrayInString() {
         return xApiStatementsArray.toString();
     }
+
+    /**
+     * sets xApiStatementsArray to the passed array
+     * @param array a xAPI-Statement array
+     */
 
     public void setArray(JSONArray array){
         xApiStatementsArray = array;
     }
 
+    /**
+     * returns the set Object
+     */
     public JSONObject getObject(){
         return object;
     }
 
-
+    /**
+     * returns the set xAPI-Array
+     */
     public JSONArray getArray(){
         return xApiStatementsArray;
     }
